@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './homepage.css';
+import './UserDashboard.css';
 
 const doctors = [
   {
@@ -155,7 +155,7 @@ const doctors = [
   },
 ];
 
-const HomePage = () => {
+const UserDashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [specialty, setSpecialty] = useState('All');
   const navigate = useNavigate();
@@ -225,4 +225,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default UserDashboard;
