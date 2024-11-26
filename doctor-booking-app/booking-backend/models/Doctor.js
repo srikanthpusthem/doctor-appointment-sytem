@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 // Define Doctor Schema
 const doctorSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  email: { type: String, required: true, unique: true }, // For login
-  password: { type: String, required: true }, // For login
+  email: { type: String, unique: true }, // For login
+  password: { type: String}, // For login
   specialty: { type: String, required: true },
   experience: { type: String, default: '' }, // Example: "5 Years"
   description: { type: String, default: '' }, // Short bio or description

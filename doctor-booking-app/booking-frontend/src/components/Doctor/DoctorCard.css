@@ -1,0 +1,32 @@
+.doctor-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  
+  .doctor-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .doctor-card h2 {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .doctor-card p {
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .doctor-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  

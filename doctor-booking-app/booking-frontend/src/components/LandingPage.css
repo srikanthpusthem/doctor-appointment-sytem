@@ -1,0 +1,195 @@
+/* General Styling */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #3f51b5 60%, #5a67d8);
+  color: white;
+  padding: 40px;
+  height: auto;
+}
+
+.hero-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.hero-title .logo {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.hero-title h1 {
+  font-size: 3.5rem;
+  color: #ffffff;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff7043, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-title .tagline {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  font-style: italic;
+}
+
+.hero-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.hero-buttons button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.hero-buttons button:first-child {
+  background-color: #ff7043;
+  color: white;
+}
+
+.hero-buttons button:first-child:hover {
+  background-color: #f4511e;
+  transform: scale(1.05);
+}
+
+.hero-buttons button:last-child {
+  background-color: #ffffff;
+  color: #3f51b5;
+}
+
+.hero-buttons button:last-child:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.05);
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* About Section */
+.about {
+  padding: 50px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.about h2 {
+  font-size: 2rem;
+  color: #3f51b5;
+  margin-bottom: 30px;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.feature {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  width: 250px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* For Doctors Section */
+.for-doctors {
+  text-align: center;
+  padding: 50px;
+  background-color: #e3f2fd;
+}
+
+.for-doctors h2 {
+  font-size: 2rem;
+  color: #3f51b5;
+  margin-bottom: 20px;
+}
+
+.for-doctors p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.doctor-buttons button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.doctor-buttons button:first-child {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.doctor-buttons button:first-child:hover {
+  background-color: #303f9f;
+  transform: scale(1.05);
+}
+
+.doctor-buttons button:last-child {
+  background-color: #ffffff;
+  color: #3f51b5;
+}
+
+.doctor-buttons button:last-child:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.05);
+}
+
+/* Footer Section */
+.footer {
+  background-color: #3f51b5;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ff7043;
+}

@@ -8,7 +8,16 @@ const appointmentSchema = new mongoose.Schema({
   slot: {
     startTime: { type: String, required: true },
     endTime: { type: String, required: true },
-  }
+  },
+  availability: [
+    {
+      date: { type: String, required: true }, // Format: 'YYYY-MM-DD'
+      slots: [
+        { time: String, isBooked: Boolean }
+      ],
+    }
+  ]
+  
 });
 
 // Create Appointment model

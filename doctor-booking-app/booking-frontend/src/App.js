@@ -8,6 +8,7 @@ import DoctorDetail from './components/Doctor/DoctorDetail';
 import DoctorRegister from './components/Doctor/DoctorRegister';
 import DoctorLogin from './components/Doctor/DoctorLogin';
 import DoctorDashboard from './components/Doctor/DoctorDashboard';
+import LandingPage from './components/LandingPage';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route path="/doctorlogin" element={<DoctorLogin />} />
         <Route path="/userlogin" element={<UserLogin />} />
         <Route path="/userregister" element={<UserRegister />} />
-        <Route path="/" element={<UserLogin />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/userdashboard" element = {<UserDashDashboard/>}/>
         <Route path="/doctor/:id" element={<DoctorDetail />} />
       </Routes>

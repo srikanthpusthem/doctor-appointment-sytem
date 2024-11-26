@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Specialty = require('./models/Specialty');
+const Specialty = require('../models/Specialty');
 require('dotenv').config(); // Load environment variables
 
 console.log('MongoDB URI:', process.env.MONGODB_URI); // Debug log to verify URI
