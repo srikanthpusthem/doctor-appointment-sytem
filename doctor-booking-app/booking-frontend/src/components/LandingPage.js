@@ -1,87 +1,82 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import './LandingPage.css';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./LandingPage.css";
+import heroImage from "../assets/images/hero.jpg";
 
 const LandingPage = () => {
   const navigate = useNavigate();
 
   return (
     <div className="landing-page">
+      {/* Navigation Bar */}
+      <nav className="navbar">
+        <div className="nav-brand" onClick={() => navigate("/")}>
+          MediConnect
+        </div>
+        <ul className="nav-links">
+          <li onClick={() => navigate("/")}>Home</li>
+          <li onClick={() => navigate("/userdashboard")}>Explore Doctors</li>
+          <li onClick={() => navigate("/userregister")}>Get Started</li>
+          <li onClick={() => navigate("/doctorregister")}>Join as a Doctor</li>
+        </ul>
+        <button className="nav-cta" onClick={() => navigate("/userlogin")}>
+          Login
+        </button>
+      </nav>
+
       {/* Hero Section */}
-      <header className="hero">
+      <section className="hero">
         <div className="hero-content">
-          <div className="hero-title">
-            <img src="https://via.placeholder.com/100" alt="MediConnect Logo" className="logo" />
-            <h1>MediConnect</h1>
-            <p className="tagline">Your Gateway to Expert Healthcare</p>
-          </div>
-          <div className="hero-text">
-            <h2>Find Your Specialist</h2>
-            <p>
-              Connecting you with the best doctors near you. Book appointments with ease and access expert healthcare services.
-            </p>
-            <div className="hero-buttons">
-              <button onClick={() => navigate('/userdashboard')}>Explore Doctors</button>
-              <button onClick={() => navigate('/userregister')}>Get Started</button>
-            </div>
+          <h1>Your Health, Our Priority</h1>
+          <p>Access quality healthcare anytime, anywhere with trusted professionals.</p>
+          <div className="hero-buttons">
+            <button className="cta primary" onClick={() => navigate("/userregister")}>
+              Get Started
+            </button>
+            <button className="cta secondary" onClick={() => navigate("/doctorregister")}>
+              Join as a Doctor
+            </button>
           </div>
         </div>
         <div className="hero-image">
           <img
-            src="https://via.placeholder.com/800X600"
-            alt="Healthcare Illustration"
+            src={heroImage}
+            alt="Healthcare illustration"
           />
         </div>
-      </header>
+      </section>
 
-      {/* About Section */}
-      <section className="about">
-        <h2>Why Choose Us?</h2>
-        <div className="features">
-          <div className="feature">
-            <img
-              src="https://via.placeholder.com/100"
-              alt="Verified Doctors"
-            />
-            <h3>Verified Doctors</h3>
-            <p>Our doctors are licensed and verified to ensure you get the best care.</p>
+      {/* Services Section */}
+      <section className="services">
+        <h2>Our Services</h2>
+        <div className="service-cards">
+          <div className="service-card">
+            <img src="https://via.placeholder.com/100" alt="Primary Care" />
+            <h3>Primary Care</h3>
+            <p>General health consultations at your convenience.</p>
           </div>
-          <div className="feature">
-            <img
-              src="https://via.placeholder.com/100"
-              alt="Easy Appointments"
-            />
-            <h3>Easy Appointments</h3>
-            <p>Book appointments in just a few clicks, anytime, anywhere.</p>
+          <div className="service-card">
+            <img src="https://via.placeholder.com/100" alt="Mental Health" />
+            <h3>Mental Health</h3>
+            <p>Get expert support for your emotional well-being.</p>
           </div>
-          <div className="feature">
-            <img
-              src="https://via.placeholder.com/100"
-              alt="Seamless Experience"
-            />
-            <h3>Seamless Experience</h3>
-            <p>Enjoy a smooth and user-friendly experience across all devices.</p>
+          <div className="service-card">
+            <img src="https://via.placeholder.com/100" alt="Chronic Management" />
+            <h3>Chronic Management</h3>
+            <p>Manage ongoing health conditions with ease.</p>
           </div>
         </div>
       </section>
 
-      {/* For Doctors Section */}
-      <section className="for-doctors">
-        <h2>Are You a Doctor?</h2>
-        <p>Join MediConnect and connect with patients effortlessly. Manage appointments and grow your practice.</p>
-        <div className="doctor-buttons">
-          <button onClick={() => navigate('/doctorlogin')}>Login as Doctor</button>
-          <button onClick={() => navigate('/doctorregister')}>Register as Doctor</button>
-        </div>
-      </section>
-
-      {/* Footer Section */}
+      {/* Footer */}
       <footer className="footer">
-        <p>&copy; 2024 MediConnect. All Rights Reserved.</p>
-        <div className="footer-links">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms & Conditions</a>
-          <a href="/contact">Contact Us</a>
+        <div className="footer-content">
+          <p>&copy; 2024 MediConnect. All Rights Reserved.</p>
+          <div className="footer-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/contact">Contact Us</a>
+          </div>
         </div>
       </footer>
     </div>
