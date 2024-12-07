@@ -1,44 +1,96 @@
 import React, { useState } from 'react';
-import { TextField, Button, Typography, Container, Box } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
+import './UserRegister.css';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const UserRegister = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+
+  const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setError('');
+  };
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:5001/api/users/register', {
-        name,
-        email,
-        password,
-      });
-      console.log('Registration successful:', response.data);
-      navigate('/login'); // Navigate to login page
-    } catch (error) {
-      console.error('Error registering:', error);
+    if (formData.name && formData.email && formData.password) {
+      try {
+        const response = await axios.post('http://localhost:5001/api/users/register', formData);
+        console.log('Registration successful:', response.data);
+        navigate('/userlogin'); // Navigate to the login page after registration
+      } catch (error) {
+        console.error('Error registering:', error);
+        setError('Registration failed. Please try again.');
+      }
+    } else {
+      setError('Please fill out all fields.');
     }
   };
 
   return (
-    <Container maxWidth="xs">
-      <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" mt={8}>
-        <Typography variant="h4" gutterBottom>User Registeration</Typography>
-        <TextField label="Full Name" variant="outlined" margin="normal" fullWidth required onChange={(e) => setName(e.target.value)} />
-        <TextField label="Email" variant="outlined" margin="normal" fullWidth required onChange={(e) => setEmail(e.target.value)} />
-        <TextField label="Password" variant="outlined" type="password" margin="normal" fullWidth required onChange={(e) => setPassword(e.target.value)} />
-        <Button variant="contained" color="primary" fullWidth style={{ marginTop: '20px' }} onClick={handleRegister}>
-          Register
-        </Button>
-        <Typography variant="body2" color="textSecondary" style={{ marginTop: '20px' }}>
-          Already have an account? <Link to="/userlogin">Login</Link>
-        </Typography>
-      </Box>
-    </Container>
+    <div className="user-register-container">
+      {/* Left Section with Patient Image */}
+      <div className="left-section">
+        <div className="patient-image-container">
+          <img
+            src="https://as1.ftcdn.net/v2/jpg/07/47/50/00/1000_F_747500071_6ulaWCKSJJg6cLoty6BFofWtx4R9V175.jpg"
+            alt="Patient"
+            className="patient-image"
+          />
+        </div>
+      </div>
+
+      {/* Right Section with Registration Form */}
+      <div className="right-section">
+        <form className="register-form" onSubmit={handleRegister}>
+          <h2>Patient Registration</h2>
+          <div className="form-group">
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          {error && <p className="error-message">{error}</p>}
+          <button type="submit" className="register-button">
+            Register
+          </button>
+          <p className="login-link">
+            Already have an account? <Link to="/userlogin">Login here</Link>
+          </p>
+        </form>
+      </div>
+    </div>
   );
 };
 

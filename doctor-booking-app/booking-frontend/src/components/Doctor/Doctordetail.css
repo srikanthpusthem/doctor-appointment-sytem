@@ -27,112 +27,22 @@ h1 {
   border: 2px solid #007BFF;
 }
 
-.doctor-bio {
-  flex-grow: 1;
-}
-
-.doctor-bio h2 {
-  color: #007BFF;
-}
-
-.doctor-bio p {
-  margin: 5px 0;
-  color: #555;
-}
-
-.action-buttons {
-  display: flex;
-  justify-content: center;
+.calendar-container {
   margin-top: 20px;
 }
 
-.action-buttons button {
-  padding: 10px 20px;
-  margin: 0 10px;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.book-appointment {
-  background-color: #28a745;
-}
-
-.contact-doctor {
-  background-color: #007BFF;
-}
-
-.action-buttons button:hover {
-  opacity: 0.9;
-}
-
-
-
-
-/* Available Slots Section */
-.available-slots {
-  margin-top: 20px;
-  padding: 20px;
-  background: #f9f9f9;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.available-slots h3 {
-  margin-bottom: 10px;
-  color: #007BFF;
+.react-calendar {
+  width: 100%;
 }
 
 .slots {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
 }
 
 .slot {
-  padding: 10px 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
-
-.slot:hover {
-  background-color: #f1f1f1;
-}
-
-.slot.selected {
-  background-color: #007BFF;
-  color: white;
-}
-
-.confirm-booking {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background: #28a745;
-  color: white;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.confirm-booking:hover {
-  background: #218838;
-}
-
-.message {
-  margin-top: 15px;
-  color: green;
-}
-
-.loading {
-  text-align: center;
-  color: #007BFF;
-  margin-top: 20px;
-}
-

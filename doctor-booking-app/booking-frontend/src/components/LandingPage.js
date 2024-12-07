@@ -15,7 +15,6 @@ const LandingPage = () => {
         </div>
         <ul className="nav-links">
           <li onClick={() => navigate("/")}>Home</li>
-          <li onClick={() => navigate("/userdashboard")}>Explore Doctors</li>
           <li onClick={() => navigate("/userregister")}>Get Started</li>
           <li onClick={() => navigate("/doctorregister")}>Join as a Doctor</li>
         </ul>
@@ -40,7 +39,7 @@ const LandingPage = () => {
         </div>
         <div className="hero-image">
           <img
-            src={heroImage}
+          src={heroImage}
             alt="Healthcare illustration"
           />
         </div>
@@ -51,17 +50,26 @@ const LandingPage = () => {
         <h2>Our Services</h2>
         <div className="service-cards">
           <div className="service-card">
-            <img src="https://via.placeholder.com/100" alt="Primary Care" />
+            <img
+              src="https://images.pexels.com/photos/1105191/pexels-photo-1105191.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Primary Care"
+            />
             <h3>Primary Care</h3>
             <p>General health consultations at your convenience.</p>
           </div>
           <div className="service-card">
-            <img src="https://via.placeholder.com/100" alt="Mental Health" />
+            <img
+              src="https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Mental Health"
+            />
             <h3>Mental Health</h3>
             <p>Get expert support for your emotional well-being.</p>
           </div>
           <div className="service-card">
-            <img src="https://via.placeholder.com/100" alt="Chronic Management" />
+            <img
+              src="https://images.pexels.com/photos/3993217/pexels-photo-3993217.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Chronic Management"
+            />
             <h3>Chronic Management</h3>
             <p>Manage ongoing health conditions with ease.</p>
           </div>

@@ -1,44 +1,95 @@
 import React, { useState } from 'react';
-import { TextField, Button, Typography, Container, Box } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
+import './UserLogin.css';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+//import ph from "../assets/images/11222.jpg";
 
 const UserLogin = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setError('');
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:5001/api/users/login', {
-        email,
-        password,
-      });
-      console.log('Login successful:', response.data);
-      
-      localStorage.setItem('token', response.data.token);
-      navigate('/userdashboard'); // Navigate to a protected route
-    } catch (error) {
-      console.error('Error logging in:', error);
+    if (formData.email && formData.password) {
+      try {
+        const response = await axios.post('http://localhost:5001/api/users/login', formData);
+        console.log('Login successful:', response.data);
+        localStorage.setItem('token', response.data.token);
+        navigate('/userdashboard'); // Navigate to the dashboard after login
+      } catch (error) {
+        console.error('Error logging in:', error);
+        setError('Invalid email or password.');
+      }
+    } else {
+      setError('Please enter both email and password.');
     }
-    
   };
 
   return (
-    <Container maxWidth="xs">
-      <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" mt={8}>
-        <Typography variant="h4" gutterBottom>User Login</Typography>
-        <TextField label="Email" variant="outlined" margin="normal" fullWidth required onChange={(e) => setEmail(e.target.value)} />
-        <TextField label="Password" variant="outlined" type="password" margin="normal" fullWidth required onChange={(e) => setPassword(e.target.value)} />
-        <Button variant="contained" color="primary" fullWidth style={{ marginTop: '20px' }} onClick={handleLogin}>
-          Login
-        </Button>
-        <Typography variant="body2" color="textSecondary" style={{ marginTop: '20px' }}>
-          Don't have an account? <Link to="/userregister">Register</Link>
-        </Typography>
-      </Box>
-    </Container>
+    <div className="user-login-container">
+      {/* Left Section with Patient Image */}
+      <div className="left-section">
+        <div className="patient-image-container">
+          <img
+            src="https://as1.ftcdn.net/v2/jpg/07/47/50/00/1000_F_747500071_6ulaWCKSJJg6cLoty6BFofWtx4R9V175.jpg"
+            alt="Patient"
+            className="patient-image"
+          />
+        </div>
+      </div>
+
+      {/* Right Section with Login Form */}
+      <div className="right-section">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <h2>Patient Login</h2>
+          <div className="form-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Your Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          {error && <p className="error-message">{error}</p>}
+          <div className="form-options">
+            <label>
+              <input type="checkbox" /> Remember my password
+            </label>
+            <Link to="/forgotpassword" className="forgot-password">
+              Forgot password?
+            </Link>
+          </div>
+          <button type="submit" className="login-button">
+            Login
+          </button>
+          <p className="register-link">
+            Don't have an account? <Link to="/userregister">Register here</Link>
+          </p>
+        </form>
+      </div>
+    </div>
   );
 };
 

@@ -35,8 +35,11 @@ const doctorAuthRoutes = require('./routes/doctorAuth'); // Adjust path
 app.use('/api/users', authRoutes); // Auth routes (register/login)
 app.use('/api/specialties', specialtyRoutes); // Specialty routes
 app.use('/api/doctors', doctorRoutes); // Doctor routes
-app.use('/api/appointments', appointmentRoutes); // Appointment routes
+app.use('/api', appointmentRoutes); // Appointment routes
 app.use('/api/doctors/auth', doctorAuthRoutes); // Doctor authentication routes
+
+console.log('Registering /api routes');
+app.use('/api', appointmentRoutes);
 
 // Root Route
 app.get('/', (req, res) => {

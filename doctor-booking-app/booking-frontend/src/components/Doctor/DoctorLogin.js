@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './DoctorLogin.css';
 
 const DoctorLogin = () => {
@@ -7,58 +7,76 @@ const DoctorLogin = () => {
     email: '',
     password: '',
   });
+
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setError(''); // Clear errors on input change
+    setError('');
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true); // Start loading
-    try {
-      const response = await axios.post('http://localhost:5001/api/doctors/auth/login', formData);
-      alert('Doctor logged in successfully!');
-      
-      // Store the token in localStorage
-      localStorage.setItem('doctorToken', response.data.token);
-
-      // Redirect to doctor dashboard (adjust this route as needed)
-      window.location.href = '/doctor-dashboard';
-    } catch (error) {
-      setError(error.response?.data?.message || 'Login failed. Please check your credentials.');
-    } finally {
-      setLoading(false); // Stop loading
+    if (formData.email && formData.password) {
+      // Simulate successful login and redirect to dashboard
+      navigate('/doctordashboard');
+    } else {
+      setError('Please enter both email and password.');
     }
   };
 
   return (
-    <div className="doctor-login">
-      <h2>Doctor Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        {error && <div className="error-message">{error}</div>}
-        <button type="submit" disabled={loading}>
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
-      </form>
+    <div className="doctor-login-container">
+      {/* Left Section with Doctor Image */}
+      <div className="left-section">
+        <div className="doctor-image-container">
+          <img
+            src="https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg"
+            alt="Doctor"
+            className="doctor-image"
+          />
+        </div>
+      </div>
+
+      {/* Right Section with Login Form */}
+      <div className="right-section">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <h2>Welcome, Doctor!</h2>
+          <div className="form-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Your Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          {error && <p className="error-message">{error}</p>}
+          <div className="form-options">
+            <label>
+              <input type="checkbox" /> Remember me
+            </label>
+            <a href="#" className="forgot-password">
+              Forgot your password?
+            </a>
+          </div>
+          <button type="submit" className="login-button">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

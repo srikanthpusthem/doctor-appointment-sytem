@@ -12,7 +12,6 @@ const UserDashboard = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  // Fetch doctors on component mount
   useEffect(() => {
     const fetchDoctors = async () => {
       setLoading(true);
@@ -31,7 +30,7 @@ const UserDashboard = () => {
   }, [searchTerm, specialty]);
 
   const handleDoctorClick = (doctor) => {
-    navigate(`/doctor/${doctor._id}`, {state:{doctor}});
+    navigate(`/doctor/${doctor._id}`, { state: { doctor } });
   };
 
   const handleSearch = (e) => {
@@ -42,19 +41,21 @@ const UserDashboard = () => {
     setSpecialty(e.target.value);
   };
 
-  if (loading) return <div className="loading-spinner"></div>;
-  if (error) return <div className="error">{error}</div>;
-
   return (
     <div className="user-dashboard">
       <header className="header">
+        <img
+          src="https://aihms.in/blog/wp-content/uploads/2021/01/mha1.jpg"
+          alt="Medical Banner"
+          className="header-banner"
+        />
         <h1>Find Your Specialist</h1>
-        <p>Search and book appointments with the best doctors near you.</p>
+        <p>Search and book appointments with top-rated doctors near you.</p>
       </header>
       <div className="search-bar">
         <input
           type="text"
-          placeholder="Search for doctors..."
+          placeholder="Search for doctors by name or location..."
           value={searchTerm}
           onChange={handleSearch}
         />
@@ -63,18 +64,25 @@ const UserDashboard = () => {
           <option value="Cardiologist">Cardiologist</option>
           <option value="Dermatologist">Dermatologist</option>
           <option value="General Physician">General Physician</option>
-          {/* Add more dynamically fetched specialties if needed */}
+          <option value="Pediatrician">Pediatrician</option>
+          <option value="Neurologist">Neurologist</option>
         </select>
       </div>
-      <div className="doctor-list">
-        {doctors.map((doctor) => (
-          <DoctorCard
-            key={doctor._id}
-            doctor={doctor}
-            onClick={() => handleDoctorClick(doctor)}
-          />
-        ))}
-      </div>
+      {loading ? (
+        <div className="loading-spinner">Loading...</div>
+      ) : error ? (
+        <div className="error">{error}</div>
+      ) : (
+        <div className="doctor-list">
+          {doctors.map((doctor) => (
+            <DoctorCard
+              key={doctor._id}
+              doctor={doctor}
+              onClick={() => handleDoctorClick(doctor)}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
