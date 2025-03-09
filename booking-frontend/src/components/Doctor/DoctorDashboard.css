@@ -1,0 +1,144 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f9;
+    color: #333;
+  }
+  
+  /* Dashboard Container */
+  .dashboard-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title and Subtitle */
+  .dashboard-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #1e3c72;
+    margin-bottom: 5px;
+  }
+  
+  .doctor-name {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #007BFF;
+    margin-bottom: 15px;
+  }
+  
+  .dashboard-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  /* Date Selection */
+  .date-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .date-label {
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+  
+  #date-select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+  }
+  
+  #date-select:focus {
+    outline: none;
+    border-color: #1e3c72;
+  }
+  
+  /* Appointments Section */
+  .appointments-container {
+    margin-top: 20px;
+  }
+  
+  .appointments-title {
+    font-size: 1.5rem;
+    color: #1e3c72;
+    margin-bottom: 10px;
+  }
+  
+  /* Appointment Cards */
+  .appointments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .appointment-card {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .appointment-card div {
+    font-size: 1rem;
+  }
+  
+  .status {
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .status.confirmed {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .status.pending {
+    background-color: #ffc107;
+    color: #fff;
+  }
+  
+  .status.cancelled {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  /* No Appointments */
+  .no-appointments {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #777;
+    margin-top: 20px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .appointment-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .appointment-card div {
+      margin-bottom: 5px;
+    }
+  }
+  

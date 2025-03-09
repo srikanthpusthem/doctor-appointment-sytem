@@ -1,0 +1,48 @@
+.doctor-detail {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.doctor-info {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.doctor-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: 2px solid #007BFF;
+}
+
+.calendar-container {
+  margin-top: 20px;
+}
+
+.react-calendar {
+  width: 100%;
+}
+
+.slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.slot {
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}

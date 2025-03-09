@@ -1,0 +1,169 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f7fa;
+}
+
+/* Split-Screen Container */
+.doctor-register-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Left Section with Doctor Image */
+.left-section {
+  flex: 1;
+  background: linear-gradient(to bottom, #1e3c72, #2a5298);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.doctor-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctor-image {
+  width: 90%;
+  height: auto;
+  object-fit: cover;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+  border-radius: 10px;
+}
+
+/* Right Section with Registration Form */
+.right-section {
+  flex: 1;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0 10px 10px 0;
+}
+
+/* Registration Form */
+.register-form {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.register-form h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1e3c72;
+}
+
+/* Form Input Fields */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #1e3c72;
+  box-shadow: 0 0 5px rgba(30, 60, 114, 0.5);
+}
+
+/* Dropdown Styling */
+.css-1okebmr-indicatorSeparator {
+  display: none;
+}
+
+.css-yk16xz-control {
+  border-color: #ccc;
+  border-radius: 4px;
+}
+
+.css-1uccc91-singleValue {
+  color: #333;
+}
+
+/* Submit Button */
+.register-button {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #1e3c72;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.register-button:hover {
+  background-color: #163d61;
+}
+
+/* Login Option */
+.login-option {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.login-option p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.login-link {
+  color: #1e3c72;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .doctor-register-container {
+    flex-direction: column;
+  }
+
+  .left-section {
+    flex: none;
+    height: 40vh;
+  }
+
+  .doctor-image {
+    width: 70%;
+  }
+
+  .right-section {
+    height: 60vh;
+    box-shadow: none;
+  }
+
+  .register-form h2 {
+    font-size: 1.8rem;
+  }
+
+  .form-group input {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .register-button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
